@@ -2,6 +2,7 @@
 import './App.scss';
 import { useState, useEffect } from 'react';
 import TodoItem from './components/TodoItem/TodoItem';
+import NavBar from './components/NavBar/NavBar';
 function App() {
 
   const [notes, setNotes] = useState([])
@@ -17,10 +18,7 @@ function App() {
 
   })
 
-  const handleReset = () => {
-
-    setNotes([])
-  }
+  const handleReset = () => {setNotes([])}
 
   const handleAdd = () => {
     if(inputText){
@@ -33,20 +31,11 @@ function App() {
     
   }
 
-  
-
-  const handleInput = (event) => {
-    setInputText(event.target.value)
-   
-
-  }
+  const handleInput = (event) => {setInputText(event.target.value)}
 
   return (
     <>
-    <div className='nav-bar'>
-      <h1 className="nav-bar__title">My Todos</h1>
-      <button className='nav-bar__btn' onClick={handleReset}>Reset</button>
-      </div>
+    <NavBar handleReset={handleReset}/>
     <div className="main-content">
       <div className='main-content__searchbar'>
         <input type="text" onChange={handleInput} className="main-content__searchbar-input" value={inputText} placeholder="Add your task here..."/>

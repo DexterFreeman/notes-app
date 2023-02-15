@@ -1,0 +1,19 @@
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 6%;
+    &__btn{
+  
+      -webkit-border-radius: 10;
+      -moz-border-radius: 10;
+      border-radius: 8px;
+      font-family: Georgia;
+      color: #000000;
+      font-size: 14px;
+      background: #ffffff;
+      padding: 8px 8px 8px 8px;
+      border: solid #000000 1px;
+      text-decoration: none;
+    }
+  }

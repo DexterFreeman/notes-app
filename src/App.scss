@@ -76,11 +76,17 @@
     height: 50px;
     border: 2px solid black;
     border-radius: 8px;
+    overflow: scroll;
 
     &-btn{
       background-color: white;
       border: none;
       font-size: 24px;
     }
+    
+  }
+  
+  &__note::-webkit-scrollbar{
+    display: none;
   }
 }

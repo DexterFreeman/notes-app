@@ -23,8 +23,14 @@ function App() {
   }
 
   const handleAdd = () => {
-    setNotes([...notes, inputText])
-    setInputText("")
+    if(inputText){
+      setNotes([...notes, inputText])
+      setInputText("")
+    }
+    else {
+      alert("please enter a todo")
+    }
+    
   }
 
   const handleInput = (event) => {

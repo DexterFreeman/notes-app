@@ -1,24 +1,24 @@
 
 import './App.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import TodoItem from './components/TodoItem/TodoItem';
 function App() {
 
-  const [notes, setNotes] = useState([
-    "Hello"
-  ])
+  const [notes, setNotes] = useState([])
   const [inputText, setInputText] = useState("")
+  
 
+  const setDeleteCard = (text) => {
+    setNotes( notes.filter(note => note !== text))
+  }
 
   const notesJSX = notes.map((note) => {
-    return <div className='main-content__note'>
-        <input type="checkbox" name="" id="" />
-        <p>{note}</p>
-        <button className='main-content__note-btn'>🗑</button>
-      </div>
+    return <TodoItem deleteCard={setDeleteCard} text={note}></TodoItem>
 
   })
 
   const handleReset = () => {
+
     setNotes([])
   }
 
@@ -33,8 +33,9 @@ function App() {
     
   }
 
+  
+
   const handleInput = (event) => {
-    console.log(event.target.value)
     setInputText(event.target.value)
    
 
@@ -48,12 +49,12 @@ function App() {
       </div>
     <div className="main-content">
       <div className='main-content__searchbar'>
-        <input type="text" onChange={handleInput} className="main-content__searchBar-input" value={inputText} placeholder="Add your task here..."/>
-        <button id="plus" onClick={handleAdd} className="main-content__searchBar-btn">+</button>
+        <input type="text" onChange={handleInput} className="main-content__searchbar-input" value={inputText} placeholder="Add your task here..."/>
+        <div onClick={handleAdd} className="main-content__searchbar-btn">+</div>
       </div>
       
       {notesJSX.length ? notesJSX : <p>Nothing to see here yet... Add a task in the field above! ☝️</p>}
-  
+      
     </div>
     </>
     

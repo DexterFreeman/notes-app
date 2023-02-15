@@ -1,0 +1,29 @@
+.main-content__note{
+    width: 275px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 5%;
+    align-items: center;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 8px;
+    
+
+    &-btn{
+      background-color: white;
+      border: none;
+      font-size: 24px;
+    }
+    p{
+        text-align: center;
+        text-overflow: ellipsis;
+        height: 30px;
+        overflow: scroll;
+    }
+    
+  }
+  
+.main-content__note p::-webkit-scrollbar{
+    display: none;
+  }
